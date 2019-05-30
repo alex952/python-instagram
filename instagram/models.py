@@ -96,8 +96,8 @@ class Media(ApiModel):
 
         new_media.comment_count = entry['comments']['count']
         new_media.comments = []
-        for comment in entry['comments']['data']:
-            new_media.comments.append(Comment.object_from_dictionary(comment))
+        #for comment in entry['comments']['data']:
+            #new_media.comments.append(Comment.object_from_dictionary(comment))
 
         new_media.users_in_photo = []
         if entry.get('users_in_photo'):
@@ -192,8 +192,8 @@ class Location(ApiModel):
 
 class User(ApiModel):
 
-    def __init__(self, id, *args, **kwargs):
-        self.id = id
+    def __init__(self, username, *args, **kwargs):
+        self.username = username
         for key, value in six.iteritems(kwargs):
             setattr(self, key, value)
 
